@@ -1,0 +1,30 @@
+{% extends "index.html" %}
+
+{% block content %}
+<table border="1">
+    <tr>
+        {% for continent in continents %}
+        <th>{{continent.name}}</th>
+    <tr>
+        <td>
+            <table border="1">
+                {% for country in countries %}
+                {% for city in country.cities %}
+                {% if country.continent_id == continent.id %}
+                <tr>
+                    <td>{{country.name}}</td>
+                    <td> {{city.name}}</td>
+                    <td> {{city.population}}</td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+                {% endfor %}
+
+            </table>
+        </td>
+    </tr>
+    {% endfor %}
+    </tr>
+</table>
+
+{% endblock %}
